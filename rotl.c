@@ -1,9 +1,12 @@
+#include "monty.h"
+
+
 /**
  * rotl - push the data in the stack or queue
  * @stack: pointer to the stack
  * @line_number: instruction
  */
-void rotl(stack_t **stack, unsigned int line_number)
+void _rotl(stack_t **stack, unsigned int line_number)
 {
 	if (!(*stack) || !(*stack)->next)
 	{

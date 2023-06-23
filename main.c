@@ -92,8 +92,8 @@ void prs_input(FILE *fd)
 			var.stack_queue = 1;
 			continue;
 		}
-		var.args = pars_args((buffer, " \t\r\n");
-		if (!get_instruct(var.args))
+		var.args = pars_args(buffer, " \t\r\n");
+		if (!instruct(var.args))
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n",
 					var.line_number, var.args[0]);
@@ -102,7 +102,7 @@ void prs_input(FILE *fd)
 			exit(EXIT_FAILURE);
 		}
 
-		get_instruct(var.args)(&var.stack, var.line_number);
+		instruct(var.args)(&var.stack, var.line_number);
 		free_args(var.args);
 	}
 
@@ -115,7 +115,7 @@ void prs_input(FILE *fd)
  *
  * Return: array of string or, NULL on failure
  */
-char **pars_args((char *cmd, const char *delim)
+char **pars_args(char *cmd, const char *delim)
 {
 	char **args, *tok, *tmp;
 	int i = 0;

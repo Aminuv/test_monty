@@ -5,7 +5,7 @@
  * @stack: pointer to the stack
  * @line_number: instruction
  */
-void div(stack_t **stack, unsigned int line_number)
+void _div(stack_t **stack, unsigned int line_number)
 {
 	if (!(*stack) || !(*stack)->next)
 	{

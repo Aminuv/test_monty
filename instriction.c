@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * get_instruct - selects a correct func to perform the operation.
+ * instruct - selects a correct func to perform the operation.
  * @s: operator for pass of the program
  * 
  * Return: appropraite function or NULL if it does not exist.
  */
-void (*get_instruct(char **s))(stack_t **, unsigned int)
+void (*instruct(char **s))(stack_t **, unsigned int)
 {
 	int i;
 	instruction_t ops[] = {
@@ -18,13 +18,13 @@ void (*get_instruct(char **s))(stack_t **, unsigned int)
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
-		{"div", div},
+		{"div", _div},
 		{"mul", mul},
 		{"mod", mod},
 		{"pchar", pchar},
 		{"pstr", pstr},
-		{"rotl", rotl},
-		{"rotr", rotr},
+		{"rotl", _rotl},
+		{"rotr", _rotr},
 		{NULL, NULL}
 	};
 
